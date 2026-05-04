@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ADMIN;
-import ADMIN.VentanaPrincipal;
+
 /**
  *
  * @author zurim
