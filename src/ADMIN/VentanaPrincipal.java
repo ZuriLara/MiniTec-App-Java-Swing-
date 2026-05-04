@@ -156,6 +156,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // 4. ¡Súper importante! Refrescamos la interfaz
         contentPanel.revalidate();
         contentPanel.repaint();
+        
     }//GEN-LAST:event_BotonProductosActionPerformed
 
     /**

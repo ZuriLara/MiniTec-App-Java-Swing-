@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ADMIN;
-
+import ADMIN.VentanaPrincipal;
 /**
  *
  * @author zurim
@@ -49,6 +49,7 @@ public class Pedidos extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
 
         jButton1.setText("Dashboard");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setText("Productos");
         jButton2.addActionListener(this::jButton2ActionPerformed);
@@ -87,6 +88,7 @@ public class Pedidos extends javax.swing.JFrame {
         );
 
         jButton5.setText("Cerrar Sesion");
+        jButton5.addActionListener(this::jButton5ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,6 +227,15 @@ public class Pedidos extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
