@@ -64,7 +64,6 @@ public class Registroo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -72,8 +71,6 @@ public class Registroo extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel4.setText("Confirma contraseña ");
-
-        jPasswordField2.setText("jPasswordField2");
 
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
