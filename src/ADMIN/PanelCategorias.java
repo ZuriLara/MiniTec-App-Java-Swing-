@@ -126,10 +126,20 @@ public class PanelCategorias extends javax.swing.JPanel {
 
     private void AgCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgCategoriaActionPerformed
         // TODO add your handling code here:
+        java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
+    
+    AgregarCategoria dialog = new AgregarCategoria(parent, true);
+    dialog.setLocationRelativeTo(parent);
+    dialog.setVisible(true);
     }//GEN-LAST:event_AgCategoriaActionPerformed
 
     private void EditCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCategoriaActionPerformed
         // TODO add your handling code here:
+        java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
+    
+    AgregarCategoria dialog = new AgregarCategoria(parent, true);
+    dialog.setLocationRelativeTo(parent);
+    dialog.setVisible(true);
     }//GEN-LAST:event_EditCategoriaActionPerformed
 
 
