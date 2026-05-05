@@ -63,7 +63,12 @@ public class PanelProductos extends javax.swing.JPanel {
         DelProd.setText("Borrar Productos");
         jPanel1.add(DelProd);
 
-        RepStock.setText("Ver Reporte de Stock");
+        RepStock.setText("Agregar Producto");
+        RepStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RepStockActionPerformed(evt);
+            }
+        });
         jPanel1.add(RepStock);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -90,7 +95,22 @@ public class PanelProductos extends javax.swing.JPanel {
 
     private void EditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductActionPerformed
         // TODO add your handling code here:
+        java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
+    
+    Agregarproducto dialog = new Agregarproducto(parent, true);
+    dialog.setLocationRelativeTo(parent);
+    dialog.setVisible(true);
     }//GEN-LAST:event_EditProductActionPerformed
+
+    private void RepStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepStockActionPerformed
+        // TODO add your handling code here:
+        java.awt.Frame parent = (java.awt.Frame) javax.swing.SwingUtilities.getWindowAncestor(this);
+    
+    Agregarproducto dialog = new Agregarproducto(parent, true);
+    dialog.setLocationRelativeTo(parent);
+    dialog.setVisible(true);
+        
+    }//GEN-LAST:event_RepStockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -104,11 +104,6 @@
                 <Property name="rows" type="int" value="5"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="BotonDashboard">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Dashboard"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="BotonProductos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Productos"/>
@@ -121,6 +116,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ordenes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonOrdenesActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="BotonCategorias">
                   <Properties>
@@ -129,11 +127,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonCategoriasActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="BotonUsuarios">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Usuarios"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -164,6 +157,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonSalirActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

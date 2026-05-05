@@ -110,8 +110,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="RepStock">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver Reporte de Stock"/>
+            <Property name="text" type="java.lang.String" value="Agregar Producto"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RepStockActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

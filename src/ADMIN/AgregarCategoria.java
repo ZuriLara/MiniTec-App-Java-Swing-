@@ -3,26 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package ADMIN;
+import conexion.conexionMysql;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author zurim
  */
 public class AgregarCategoria extends javax.swing.JDialog {
+    private PanelCategorias panel;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgregarCategoria.class.getName());
 
     /**
      * Creates new form AgregarCategoria
      */
-    public AgregarCategoria(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
-    }
-
-    AgregarCategoria() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public AgregarCategoria(java.awt.Frame parent, boolean modal, PanelCategorias panel) {
+    super(parent, modal);
+    initComponents();
+    this.panel = panel;
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +57,7 @@ public class AgregarCategoria extends javax.swing.JDialog {
         DescripcionCategoria.addActionListener(this::DescripcionCategoriaActionPerformed);
 
         CancelarCat.setText("Cancelar");
+        CancelarCat.addActionListener(this::CancelarCatActionPerformed);
 
         GuardarCat.setText("Guardar Categoria");
         GuardarCat.addActionListener(this::GuardarCatActionPerformed);
@@ -126,44 +128,18 @@ public class AgregarCategoria extends javax.swing.JDialog {
 
     private void GuardarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarCatActionPerformed
         // TODO add your handling code here:
+        guardarCategoria();
     }//GEN-LAST:event_GuardarCatActionPerformed
+
+    private void CancelarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCatActionPerformed
+        // TODO add your handling code here:
+        CancelarCat.addActionListener(e -> dispose());
+    }//GEN-LAST:event_CancelarCatActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                AgregarCategoria dialog = new AgregarCategoria(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelarCat;
@@ -174,4 +150,32 @@ public class AgregarCategoria extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+public void guardarCategoria() {
+    if (NombreCategoria.getText().isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Escribe un nombre");
+        return;
+    }
+
+    Connection con = conexionMysql.conectar();
+
+    String sql = "INSERT INTO categoria(nombre_categoria, descripcion) VALUES (?, ?)";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        ps.setString(1, NombreCategoria.getText());
+        ps.setString(2, DescripcionCategoria.getText());
+
+        ps.executeUpdate();
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Categoria guardada");
+
+        panel.cargarCategorias(); 
+
+        dispose();
+
+    } catch (Exception e) {
+        System.out.println("Error: " + e);
+    }
+}
 }

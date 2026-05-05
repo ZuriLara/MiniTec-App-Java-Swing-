@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import ADMIN.VentanaPrincipal;
 
 /**
  *
@@ -172,7 +173,9 @@ public class Login extends javax.swing.JFrame {
                     pug.setVisible(true);
                     }
                     else if(rol.equalsIgnoreCase("Admin")){
-                    JOptionPane.showMessageDialog(null, "SOY EL ADMINISTRADOR");
+                    //JOptionPane.showMessageDialog(null, "SOY EL ADMINISTRADOR");
+                    VentanaPrincipal m = new VentanaPrincipal();
+                            m.setVisible(true);
                     }
                 }
                 else{

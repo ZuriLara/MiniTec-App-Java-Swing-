@@ -32,11 +32,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelCentral = new javax.swing.JPanel();
         PanelOpciones = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        BotonDashboard = new javax.swing.JButton();
         BotonProductos = new javax.swing.JButton();
         BotonOrdenes = new javax.swing.JButton();
         BotonCategorias = new javax.swing.JButton();
-        BotonUsuarios = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         BotonSalir = new javax.swing.JButton();
         contentPanel = new javax.swing.JPanel();
@@ -53,9 +51,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(138, 300));
         jPanel5.setLayout(new java.awt.GridLayout(5, 5));
 
-        BotonDashboard.setText("Dashboard");
-        jPanel5.add(BotonDashboard);
-
         BotonProductos.setText("Productos");
         BotonProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +60,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel5.add(BotonProductos);
 
         BotonOrdenes.setText("Ordenes");
+        BotonOrdenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonOrdenesActionPerformed(evt);
+            }
+        });
         jPanel5.add(BotonOrdenes);
 
         BotonCategorias.setText("Categorias");
@@ -75,10 +75,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jPanel5.add(BotonCategorias);
 
-        BotonUsuarios.setText("Usuarios");
-        jPanel5.add(BotonUsuarios);
-
         BotonSalir.setText("Salir");
+        BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -180,6 +182,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BotonCategoriasActionPerformed
 
+    private void BotonOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonOrdenesActionPerformed
+        // TODO add your handling code here:
+        PanelOrdenes vista = new PanelOrdenes();
+        // 2. Configuramos el tamaño para que llene el espacio disponible
+        vista.setSize(contentPanel.getWidth(), contentPanel.getHeight());
+        vista.setLocation(0, 0);
+        // 3. Limpiamos lo que haya en el centro y ponemos la nueva vista
+        contentPanel.removeAll();
+        contentPanel.add(vista, java.awt.BorderLayout.CENTER);
+    
+        // 4. ¡Súper importante! Refrescamos la interfaz
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_BotonOrdenesActionPerformed
+
+    private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
+        // TODO add your handling code here:
+        tienda.Login regresar= new tienda.Login();
+        regresar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BotonSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,11 +231,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCategorias;
-    private javax.swing.JButton BotonDashboard;
     private javax.swing.JButton BotonOrdenes;
     private javax.swing.JButton BotonProductos;
     private javax.swing.JButton BotonSalir;
-    private javax.swing.JButton BotonUsuarios;
     private javax.swing.JPanel PanelCentral;
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JPanel contentPanel;
